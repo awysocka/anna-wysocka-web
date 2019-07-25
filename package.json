@@ -1,0 +1,32 @@
+{
+  "name": "anna-wysocka-web",
+  "version": "1.0.0",
+  "description": "Anna Wysocka's page",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf css",
+    "compile": "node-sass --output-style=expanded --source-map=true scss/main.scss css/main.css",
+    "prefix": "postcss css/main.css --use=autoprefixer --map=false --output=css/main.css",
+    "minify": "cleancss --level=1 --source-map --source-map-inline-sources --output css/main.css css/main.css",
+    "dev": "npm run compile -- --watch",
+    "build": "npm run clean && npm run compile && npm run prefix && npm run minify"
+  },
+  "browserslist": ["last 2 versions"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awysocka/anna-wysocka-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awysocka/anna-wysocka-web/issues"
+  },
+  "homepage": "https://github.com/awysocka/anna-wysocka-web#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.3"
+  }
+}
