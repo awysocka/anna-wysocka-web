@@ -1,0 +1,6 @@
+@mixin popOut($delay) {
+    animation: popOut .6s cubic-bezier(.74, .06, .4, .92) forwards;
+    animation-delay: $delay;
+    opacity: 0;
+}
+

@@ -1,3 +1,8 @@
-body {
-    background: red;
-}
+@import 'variables';
+@import 'animation';
+@import 'mixin';
+@import 'base';
+@import 'layouts';
+@import 'components';
+
+
