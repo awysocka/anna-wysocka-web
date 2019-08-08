@@ -4,15 +4,25 @@
   "description": "Anna Wysocka's page",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf css",
-    "compile": "node-sass --output-style=expanded --source-map=true scss/main.scss css/main.css",
-    "prefix": "postcss css/main.css --use=autoprefixer --map=false --output=css/main.css",
-    "minify": "cleancss --level=1 --source-map --source-map-inline-sources --output css/main.css css/main.css",
-    "dev": "npm run compile -- --watch",
-    "build": "npm run clean && npm run compile && npm run prefix && npm run minify",
-    "live": "live-server --browser=chrome"
+    "clean": "rimraf dist",
+    "scss": "node-sass src/scss/main.scss dist/css/style.css",
+    "prefix": "postcss dist/css/style.css --use=autoprefixer --map=false --output=dist/css/style.css",
+    "cssmin": "cleancss -o dist/css/style.css dist/css/style.css",
+    "jsmin": "mkdirp dist/js && terser src/js/script.js --compress --mangle --output dist/js/script.js",
+    "cp:html": "cpx \"src/**/*.html\" dist",
+    "cp:php": "cpx \"src/**/*.php\" dist",
+    "cp:img": "cp -R src/img/ dist/img/",
+    "cp": "npm run cp:html && npm run cp:php && npm run cp:img",
+    "build:css": "npm run scss && npm run prefix && npm run cssmin",
+    "build:js": "npm run jsmin",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run cp && echo Finished successfully!",
+    "watch:css": "node-sass src/scss/main.scss dist/css/style.css -w",
+    "live": "cd src && live-server --browser=chrome --mount=/css:../dist/css",
+    "dev": "npm-run-all --parallel scss watch:css live"
   },
-  "browserslist": ["last 2 versions"],
+  "browserslist": [
+    "last 2 versions"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/awysocka/anna-wysocka-web.git"
@@ -27,7 +37,11 @@
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "clean-css-cli": "^4.3.0",
+    "cpx": "^1.5.0",
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.12.0",
-    "postcss-cli": "^6.1.3"
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.3",
+    "terser": "^4.1.3"
   }
 }
