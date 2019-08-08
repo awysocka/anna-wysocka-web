@@ -4,6 +4,7 @@
     &:link,
     &:visited {
         @include button;
+        font-size: 1rem;
         opacity: 0;
         border: 1.4px solid $color-text;
         color: $color-text;
