@@ -140,13 +140,13 @@
     display: flex;
     
     .form__container {
-        width: 90%;
+        width: 80%;
         max-width: 900px;
         margin: $space-s*2 auto;
         color: $white;
         display: flex;
         flex-direction: column;
-        
+
         .arrow--back {
             font-size: $font-xs;
             font-weight: 500;
@@ -183,5 +183,54 @@
                 }
             }
         }   
-    }  
+    } 
+    
+    .form__container--inactive {
+        display: none;
+    }
+}
+
+// FORM CONFIRMATION
+
+.form__confirmation {
+    height: 100vh;
+    margin: 0 auto;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        color: $white;
+        font-size: $font-xs*2;
+        margin-bottom: $space-s;
+
+        @include respond(desktop) {
+            font-size: $font-m*2;
+        }
+    }
+
+    p {
+        color: $white;
+        font-size: $font-s;
+        margin-bottom: $space-m*3;
+
+        @include respond(desktop) {
+            font-size: $font-m;
+        }
+    }
+
+    .arrow--back:link,
+    .arrow--back:visited {
+        color: $white;
+        font-size: $font-s;
+    }
+
+    .arrow--back:hover {
+        color: $color-secondary;
+    }
+}
+
+.form__confirmation--active {
+    display: flex;
 }

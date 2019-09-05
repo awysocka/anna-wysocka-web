@@ -15,31 +15,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anna Wysocka - Front-end developer | kontakt</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=latin-ext" rel="stylesheet"> 
-    <link rel="Stylesheet" href="../css/style.css">
+    <link rel="Stylesheet" href="/css/style.css">
     <!-- Favicon - start  -->
-    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Favicon - end  -->
     <script src="https://kit.fontawesome.com/56980f51a1.js"></script>
 </head>
 <body>
     <div class="form__section">
-        <div class="form__container">
+        <div class="form__container" id="form-container">
             
             <div class="form__description">
                 <a href="/" class="arrow--back">&lt cofnij</a>
@@ -47,7 +47,7 @@
                 <h2 class="heading--secondary">Napisz wiadomość</h2>
             </div>   
             <div class="form__box">
-                <form action="mail.php" method="POST" class="contact__form">
+                <form action="mail.php" id="contact-form" method="POST" class="contact__form">
                     <div class="contact-name">
                         <label for="name">Imię i nazwisko</label>
                         <input type="text" name="name" id="name" required>
@@ -58,12 +58,20 @@
                     </div>
                     <div class="textarea">
                         <label for="message">Wiadomość</label>
-                        <textarea id="message" name="message" rows="8" cols="30"></textarea>
+                        <textarea id="message" name="message" rows="8" cols="30" required></textarea>
                     </div>
                     <input type="submit" value="Wyślij" class="send-btn">   
                 </form>
+                
             </div>
         </div>
+        <div class="form__confirmation" id="form-confirmation">
+            <h1>Dziękuję za wiadomość</h1>
+            <p>Odezwę się tak szybko, jak to możliwe.</p>
+            <a href="/" class="arrow--back">&lt cofnij</a>
+        </div>
     </div>
+   
+    <script src="/js/script.js"></script> 
 </body>
 </html>
