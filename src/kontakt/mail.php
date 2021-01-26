@@ -42,6 +42,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$validationMessage = 'Formularz jest pusty';
 			throw new \Exception($validationMessage);
 		}
+
+        if (!isset($_POST['gr_token'])) {
+            $validationMessage = 'Brak tokenu reCaptcha';
+            throw new \Exception($validationMessage);
+        }
+
+		// Build POST request:
+        $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+        $recaptcha_secret = 'YOUR_RECAPTCHA_SECRET_KEY';
+        $recaptcha_response = $_POST['gr_token'];
+
+        // Make and decode POST request:
+        $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+        $recaptcha = json_decode($recaptcha);
+
+        // Take action based on the score returned:
+        if ($recaptcha->score < 0.5) {
+            // Not verified - show form error
+            $validationMessage = 'Błąd weryfikacji reCaptcha';
+            throw new \Exception($validationMessage);
+        }
 	            
 	    $emailText = "Nowa wiadomość:\n";
 	    $emailText .= "=============================\n";
